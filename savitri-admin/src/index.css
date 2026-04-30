@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --gold:       #d4a82a;
+    --gold-light: #edca4a;
+    --ink-bg:     #0e0e13;
+    --ink-surface:#18181f;
+    --ink-border: #26262e;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background: var(--ink-bg);
+    color: #e8e8ec;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,h2,h3,h4 { font-family: 'Cormorant Garamond', serif; font-weight: 600; line-height: 1.2; }
+  ::selection { background: #d4a82a33; }
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: var(--ink-bg); }
+  ::-webkit-scrollbar-thumb { background: #35353f; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+}
+
+@layer components {
+  /* ── Cards ───────────────────────────────────────── */
+  .card { @apply bg-ink-800 border border-ink-700 rounded-2xl shadow-card; }
+  .card-sm { @apply bg-ink-800 border border-ink-700 rounded-xl p-4; }
+
+  /* ── Stat card ───────────────────────────────────── */
+  .stat-card { @apply card p-6 transition-all duration-300 hover:border-gold-500/30 hover:shadow-glow; }
+
+  /* ── Buttons ──────────────────────────────────────── */
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-xl font-body font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gold-500/50 disabled:opacity-50 disabled:cursor-not-allowed; }
+  .btn-gold    { @apply btn px-5 py-2.5 text-sm bg-gold-gradient text-ink-900 shadow-gold hover:shadow-glow hover:scale-[1.02] active:scale-[.98]; }
+  .btn-ghost   { @apply btn px-4 py-2 text-sm text-ink-300 hover:bg-ink-700 hover:text-white; }
+  .btn-danger  { @apply btn px-4 py-2 text-sm bg-rose-500/10 text-rose-400 border border-rose-500/20 hover:bg-rose-500 hover:text-white; }
+  .btn-outline { @apply btn px-4 py-2 text-sm border border-ink-600 text-ink-300 hover:border-gold-500 hover:text-gold-400; }
+  .btn-icon    { @apply w-8 h-8 rounded-lg flex items-center justify-center text-ink-400 hover:bg-ink-700 hover:text-white transition-all; }
+
+  /* ── Inputs ──────────────────────────────────────── */
+  .input { @apply w-full px-4 py-2.5 rounded-xl bg-ink-900 border border-ink-700 text-sm text-ink-100 placeholder:text-ink-500 focus:outline-none focus:ring-2 focus:ring-gold-500/40 focus:border-gold-500/60 transition-all; }
+  .label { @apply block text-xs font-medium text-ink-400 uppercase tracking-widest mb-1.5; }
+  .select { @apply input appearance-none cursor-pointer; }
+
+  /* ── Table ───────────────────────────────────────── */
+  .table-row { @apply border-b border-ink-700 hover:bg-ink-700/40 transition-colors; }
+  .th { @apply px-4 py-3 text-left text-xs font-mono text-ink-400 uppercase tracking-widest; }
+  .td { @apply px-4 py-3.5 text-sm text-ink-200; }
+
+  /* ── Badges ──────────────────────────────────────── */
+  .badge { @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium; }
+  .badge-gold    { @apply badge bg-gold-500/15 text-gold-400 border border-gold-500/20; }
+  .badge-green   { @apply badge bg-emerald-500/15 text-emerald-400 border border-emerald-500/20; }
+  .badge-red     { @apply badge bg-rose-500/15 text-rose-400 border border-rose-500/20; }
+  .badge-gray    { @apply badge bg-ink-700 text-ink-300 border border-ink-600; }
+  .badge-blue    { @apply badge bg-sky-500/15 text-sky-400 border border-sky-500/20; }
+  .badge-amber   { @apply badge bg-amber-500/15 text-amber-400 border border-amber-500/20; }
+
+  /* ── Page header ─────────────────────────────────── */
+  .page-title { @apply font-display text-3xl text-white; }
+
+  /* ── Divider ─────────────────────────────────────── */
+  .divider { @apply h-px bg-gradient-to-r from-transparent via-ink-600 to-transparent my-6; }
+
+  /* ── Skeleton ────────────────────────────────────── */
+  .skeleton { @apply rounded-lg bg-gradient-to-r from-ink-800 via-ink-700 to-ink-800 animate-shimmer; background-size: 200% 100%; }
+}
+
+/* Scrollbar hide utility */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Page transition */
+.page-enter { animation: fadeUp .4s ease both; }
+
+/* Recharts custom */
+.recharts-tooltip-wrapper .recharts-default-tooltip {
+  background: #18181f !important;
+  border: 1px solid #35353f !important;
+  border-radius: 12px !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
