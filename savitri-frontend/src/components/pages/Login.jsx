@@ -22,7 +22,7 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-obsidian-950 flex items-center justify-center px-4 relative overflow-hidden">
+    <div className="min-h-screen bg-obsidian-950 flex items-center justify-center px-4 py-16 relative overflow-hidden">
       {/* Ambient glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-gold-500/8 rounded-full blur-[120px] pointer-events-none" />
 

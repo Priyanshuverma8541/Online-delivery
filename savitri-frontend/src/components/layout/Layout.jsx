@@ -4,15 +4,20 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 
 export default function Layout() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
-  // Scroll to top on route change
-  useEffect(() => { window.scrollTo({ top: 0, behavior: "smooth" }); }, [pathname]);
+  useEffect(() => {
+    // If there's a hash, let the browser handle it (anchor scroll)
+    if (hash) return;
+    // Otherwise scroll to top instantly on route change
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [pathname, hash]);
 
   return (
     <div className="min-h-screen flex flex-col bg-cream">
       <Navbar />
-      <main className="flex-1 pt-20">
+      {/* pt accounts for fixed navbar height (h-16 mobile, h-20 desktop) */}
+      <main className="flex-1 pt-16 sm:pt-20">
         <Outlet />
       </main>
       <Footer />

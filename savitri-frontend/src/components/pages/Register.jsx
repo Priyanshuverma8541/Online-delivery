@@ -43,7 +43,7 @@ export default function Register() {
     `w-full pl-10 pr-4 py-3 rounded-xl bg-obsidian-800 border ${errors[name] ? "border-red-500" : "border-obsidian-700"} text-white placeholder:text-obsidian-500 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent font-body text-sm transition-all`;
 
   return (
-    <div className="min-h-screen bg-obsidian-950 flex items-center justify-center px-4 relative overflow-hidden py-10">
+    <div className="min-h-screen bg-obsidian-950 flex items-center justify-center px-4 py-16 relative overflow-hidden">
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-gold-500/8 rounded-full blur-[120px] pointer-events-none" />
 
       <motion.div initial={{ opacity:0, y:32 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.6 }} className="w-full max-w-md relative">
