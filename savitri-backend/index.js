@@ -21,6 +21,7 @@ const ALLOWED_ORIGINS = [
   "http://localhost:5173",
   "http://localhost:5174",
   // Production (hardcoded so they always work even if env var is missing)
+  "https://online-delivery-wxjr.vercel.app/",
   "https://online-delivery-gilt.vercel.app",
   // From .env (extra flexibility for future domains)
   process.env.CLIENT_URL,
